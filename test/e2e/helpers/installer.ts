@@ -9,7 +9,7 @@
  * - Astro: Programmatic config (Astro has no dedicated Frontman CLI — users run `astro add`)
  */
 
-import { execSync } from "node:child_process";
+import { execFileSync } from "node:child_process";
 import { resolve } from "node:path";
 import {
   existsSync,
@@ -18,6 +18,14 @@ import {
 
 const ROOT = resolve(import.meta.dirname, "../../..");
 const FRONTMAN_SERVER = "localhost:4002";
+
+function runInstaller(cli: string, fixtureDir: string): void {
+  execFileSync(
+    process.execPath,
+    [cli, "install", "--skip-deps", "--server", FRONTMAN_SERVER],
+    { cwd: fixtureDir, stdio: "inherit" },
+  );
+}
 
 /**
  * Run the Frontman Next.js installer on the fixture project.
@@ -37,10 +45,7 @@ export function installNextjs(): void {
   }
 
   console.log("  [e2e] Running Frontman Next.js installer...");
-  execSync(
-    `${process.execPath} ${cli} install --skip-deps --server ${FRONTMAN_SERVER}`,
-    { cwd: fixtureDir, stdio: "inherit" },
-  );
+  runInstaller(cli, fixtureDir);
 }
 
 /**
@@ -60,10 +65,7 @@ export function installVite(): void {
   }
 
   console.log("  [e2e] Running Frontman Vite installer...");
-  execSync(
-    `${process.execPath} ${cli} install --skip-deps --server ${FRONTMAN_SERVER}`,
-    { cwd: fixtureDir, stdio: "inherit" },
-  );
+  runInstaller(cli, fixtureDir);
 }
 
 /**
@@ -83,10 +85,7 @@ export function installVueVite(): void {
   }
 
   console.log("  [e2e] Running Frontman Vite installer (Vue fixture)...");
-  execSync(
-    `${process.execPath} ${cli} install --skip-deps --server ${FRONTMAN_SERVER}`,
-    { cwd: fixtureDir, stdio: "inherit" },
-  );
+  runInstaller(cli, fixtureDir);
 }
 
 /**
@@ -102,10 +101,7 @@ export function installSvelteVite(): void {
   }
 
   console.log("  [e2e] Running Frontman Vite installer (Svelte fixture)...");
-  execSync(
-    `${process.execPath} ${cli} install --skip-deps --server ${FRONTMAN_SERVER}`,
-    { cwd: fixtureDir, stdio: "inherit" },
-  );
+  runInstaller(cli, fixtureDir);
 }
 
 /**
@@ -121,10 +117,7 @@ export function installSolidVite(): void {
   }
 
   console.log("  [e2e] Running Frontman Vite installer (Solid fixture)...");
-  execSync(
-    `${process.execPath} ${cli} install --skip-deps --server ${FRONTMAN_SERVER}`,
-    { cwd: fixtureDir, stdio: "inherit" },
-  );
+  runInstaller(cli, fixtureDir);
 }
 
 /**
