@@ -4,8 +4,8 @@
 	"type": "module",
 	"scripts": {
 		"test": "vitest run",
-		"test:helpers": "vitest run --config vitest.helpers.config.ts",
-		"test:helpers:coverage": "vitest run --config vitest.helpers.config.ts --coverage",
+		"test:helpers": "yarn workspace @frontman-ai/vite build && vitest run --config vitest.helpers.config.ts",
+		"test:helpers:coverage": "yarn workspace @frontman-ai/vite build && vitest run --config vitest.helpers.config.ts --coverage",
 		"test:nextjs": "vitest run tests/nextjs.test.ts",
 		"test:astro": "vitest run tests/astro.test.ts",
 		"test:vite": "vitest run tests/vite.test.ts",

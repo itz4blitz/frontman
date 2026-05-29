@@ -2,10 +2,12 @@ import { EventEmitter } from "node:events";
 import { resolve } from "node:path";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-const spawnMock = vi.fn();
-const execSyncMock = vi.fn();
-const existsSyncMock = vi.fn();
-const readFileSyncMock = vi.fn();
+const { spawnMock, execSyncMock, existsSyncMock, readFileSyncMock } = vi.hoisted(() => ({
+  spawnMock: vi.fn(),
+  execSyncMock: vi.fn(),
+  existsSyncMock: vi.fn(),
+  readFileSyncMock: vi.fn(),
+}));
 
 vi.mock("node:child_process", () => ({
   execSync: execSyncMock,

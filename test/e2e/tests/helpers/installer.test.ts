@@ -1,9 +1,11 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { resolve } from "node:path";
 
-const execFileSyncMock = vi.fn();
-const existsSyncMock = vi.fn();
-const writeFileSyncMock = vi.fn();
+const { execFileSyncMock, existsSyncMock, writeFileSyncMock } = vi.hoisted(() => ({
+  execFileSyncMock: vi.fn(),
+  existsSyncMock: vi.fn(),
+  writeFileSyncMock: vi.fn(),
+}));
 
 vi.mock("node:child_process", () => ({
   execFileSync: execFileSyncMock,
