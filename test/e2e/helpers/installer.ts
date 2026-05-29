@@ -90,6 +90,44 @@ export function installVueVite(): void {
 }
 
 /**
+ * Run the Frontman Vite installer on the Svelte fixture project.
+ */
+export function installSvelteVite(): void {
+  const fixtureDir = resolve(ROOT, "test/e2e/fixtures/svelte-vite");
+  const cli = resolve(ROOT, "libs/frontman-vite/dist/cli.js");
+  if (!existsSync(cli)) {
+    throw new Error(
+      `[e2e] Vite CLI not built. Run 'make build' in libs/frontman-vite first.\n  Missing: ${cli}`,
+    );
+  }
+
+  console.log("  [e2e] Running Frontman Vite installer (Svelte fixture)...");
+  execSync(
+    `${process.execPath} ${cli} install --skip-deps --server ${FRONTMAN_SERVER}`,
+    { cwd: fixtureDir, stdio: "inherit" },
+  );
+}
+
+/**
+ * Run the Frontman Vite installer on the Solid fixture project.
+ */
+export function installSolidVite(): void {
+  const fixtureDir = resolve(ROOT, "test/e2e/fixtures/solid-vite");
+  const cli = resolve(ROOT, "libs/frontman-vite/dist/cli.js");
+  if (!existsSync(cli)) {
+    throw new Error(
+      `[e2e] Vite CLI not built. Run 'make build' in libs/frontman-vite first.\n  Missing: ${cli}`,
+    );
+  }
+
+  console.log("  [e2e] Running Frontman Vite installer (Solid fixture)...");
+  execSync(
+    `${process.execPath} ${cli} install --skip-deps --server ${FRONTMAN_SERVER}`,
+    { cwd: fixtureDir, stdio: "inherit" },
+  );
+}
+
+/**
  * Configure Frontman Astro integration in the fixture project.
  *
  * Astro has no dedicated Frontman CLI — users run `npx astro add @frontman-ai/astro`.

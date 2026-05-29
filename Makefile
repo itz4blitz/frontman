@@ -177,7 +177,7 @@ clean: ## Clean ReScript build artifacts
 # E2E Tests
 # ============================================================================
 ## E2E_START
-.PHONY: e2e e2e-nextjs e2e-astro e2e-vite e2e-vue-vite
+.PHONY: e2e e2e-nextjs e2e-astro e2e-vite e2e-vue-vite e2e-svelte-vite e2e-solid-vite
 
 e2e: ## Run all e2e tests (loads secrets from test/e2e/.env)
 	@printf "$(YELLOW)Running all e2e tests...$(RESET)\n"
@@ -198,6 +198,14 @@ e2e-vite: ## Run Vite e2e test
 e2e-vue-vite: ## Run Vue + Vite e2e test
 	@printf "$(YELLOW)Running Vue + Vite e2e test...$(RESET)\n"
 	$(call run_e2e,tests/vue-vite.test.ts)
+
+e2e-svelte-vite: ## Run Svelte + Vite e2e test
+	@printf "$(YELLOW)Running Svelte + Vite e2e test...$(RESET)\n"
+	$(call run_e2e,tests/svelte-vite.test.ts)
+
+e2e-solid-vite: ## Run Solid + Vite e2e test
+	@printf "$(YELLOW)Running Solid + Vite e2e test...$(RESET)\n"
+	$(call run_e2e,tests/solid-vite.test.ts)
 
 ## E2E_END
 

@@ -236,6 +236,62 @@ export async function startVueVite(port: number): Promise<FrameworkServer> {
   };
 }
 
+// ── Svelte + Vite ────────────────────────────────────────────────────────────
+
+export async function startSvelteVite(port: number): Promise<FrameworkServer> {
+  const fixtureDir = resolve(ROOT, "test/e2e/fixtures/svelte-vite");
+  killPort(port);
+
+  const viteBin = resolveBin(fixtureDir, "vite");
+  const proc = spawn(
+    process.execPath,
+    [viteBin, "--host", "127.0.0.1", "--port", String(port), "--strictPort"],
+    {
+      cwd: fixtureDir,
+      env: { ...process.env } as NodeJS.ProcessEnv,
+      stdio: "pipe",
+    },
+  );
+
+  logOutput(proc, "svelte-vite");
+  await waitForReady(proc, `http://127.0.0.1:${port}`, "Svelte + Vite");
+
+  return {
+    proc,
+    port,
+    fixtureDir,
+    headingFile: resolve(fixtureDir, "src/App.svelte"),
+  };
+}
+
+// ── Solid + Vite ─────────────────────────────────────────────────────────────
+
+export async function startSolidVite(port: number): Promise<FrameworkServer> {
+  const fixtureDir = resolve(ROOT, "test/e2e/fixtures/solid-vite");
+  killPort(port);
+
+  const viteBin = resolveBin(fixtureDir, "vite");
+  const proc = spawn(
+    process.execPath,
+    [viteBin, "--host", "127.0.0.1", "--port", String(port), "--strictPort"],
+    {
+      cwd: fixtureDir,
+      env: { ...process.env } as NodeJS.ProcessEnv,
+      stdio: "pipe",
+    },
+  );
+
+  logOutput(proc, "solid-vite");
+  await waitForReady(proc, `http://127.0.0.1:${port}`, "Solid + Vite");
+
+  return {
+    proc,
+    port,
+    fixtureDir,
+    headingFile: resolve(fixtureDir, "src/App.tsx"),
+  };
+}
+
 // ── Utilities ────────────────────────────────────────────────────────────────
 
 /** Kill the dev server and restore any modified fixture files. */

@@ -51,7 +51,7 @@ npx @frontman-ai/nextjs install
 npx astro add @frontman-ai/astro
 ```
 
-**Vite (React, Vue, Svelte):**
+**Vite (React, Vue, Svelte, SolidJS):**
 ```bash
 npx @frontman-ai/vite install
 ```

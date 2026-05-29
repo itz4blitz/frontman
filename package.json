@@ -30,6 +30,8 @@
 		"test/e2e/fixtures/astro",
 		"test/e2e/fixtures/vite",
 		"test/e2e/fixtures/vue-vite",
+		"test/e2e/fixtures/svelte-vite",
+		"test/e2e/fixtures/solid-vite",
 		"test/manual/vite-dashboard",
 		"libs/logs",
 		"libs/react-statestore"

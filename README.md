@@ -15,7 +15,7 @@
 
 ---
 
-[Frontman](https://frontman.sh) is an open-source AI coding agent that lives in your browser. It hooks into your dev server as middleware and sees the live DOM, component tree, CSS styles, routes, and server logs. Click any element in your running app, describe what you want changed in plain English, and Frontman edits the actual source files with instant hot reload. It supports Next.js, Astro, and Vite (React, Vue, Svelte). Free and open-source — Apache 2.0 (client libraries) / AGPL-3.0 (server). Bring your own API keys (Claude, ChatGPT, or OpenRouter).
+[Frontman](https://frontman.sh) is an open-source AI coding agent that lives in your browser. It hooks into your dev server as middleware and sees the live DOM, component tree, CSS styles, routes, and server logs. Click any element in your running app, describe what you want changed in plain English, and Frontman edits the actual source files with instant hot reload. It offers first-class integrations for Next.js and Astro, plus Vite-based support for React, Vue, Svelte, SolidJS, and similar frameworks. Free and open-source — Apache 2.0 (client libraries) / AGPL-3.0 (server). Bring your own API keys (Claude, ChatGPT, or OpenRouter).
 
 <p align="center">
   <a href="https://www.youtube.com/watch?v=-4GD1GYwH8Y">
@@ -59,7 +59,7 @@ Use OpenClaw for general-purpose automation (shell, messaging, files). Use Front
 
 ## How It Works
 
-1. **A developer adds Frontman to the project** — one command, works with Next.js, Astro, and Vite.
+1. **A developer adds Frontman to the project** — one command, works with Next.js, Astro, and Vite-based apps.
 2. **Anyone on the team opens the app in their browser** — navigate to `localhost/frontman` to get a chat interface alongside a live view of your app.
 3. **Click any element and describe the change** — Frontman sees the element's position in the component tree, its computed styles, and the server-side context. It edits the right source file and hot-reloads.
 
@@ -93,7 +93,7 @@ Listed on the [Astro integration registry](https://astro.build/integrations/?sea
 
 See the [Astro integration guide](https://frontman.sh/integrations/astro/) for details.
 
-### Vite (React, Vue, Svelte)
+### Vite-based apps (React, Vue, Svelte, SolidJS)
 
 ```bash
 npx @frontman-ai/vite install
@@ -101,7 +101,7 @@ npm run dev
 # Open http://localhost:5173/frontman
 ```
 
-Auto-detects your framework from `vite.config`. Works with React, Vue, and Svelte — including SvelteKit.
+Auto-detects your framework from `vite.config`. Use this path for React, Vue, Svelte, SolidJS, vanilla JS/TS, and similar Vite-based apps — including SvelteKit.
 
 See the [Vite integration guide](https://frontman.sh/integrations/vite/) for details.
 

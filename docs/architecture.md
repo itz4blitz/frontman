@@ -340,7 +340,7 @@ Three published npm packages inject Frontman into dev servers:
 
 - **@frontman-ai/astro** (`libs/frontman-astro`) — Astro integration hook + Vite middleware, dev toolbar app, serves Frontman UI at `/<basePath>/`, captures `data-astro-source-file` annotations, component props injection as HTML comments
 - **@frontman-ai/nextjs** (`libs/frontman-nextjs`) — Middleware (Next.js 15) or proxy (Next.js 16+), serves Frontman UI at `/frontman`, OpenTelemetry instrumentation (tracks HTTP requests, route rendering, API execution), LogCapture (auto-patches console.log, process.stdout.write, error handlers — circular buffer of 1024 entries via `globalThis`)
-- **@frontman-ai/vite** (`libs/frontman-vite`) — Vite middleware plugin, auto-detects framework from vite.config (React, Vue, Svelte), adapts Web API to Vite's Node.js request/response
+- **@frontman-ai/vite** (`libs/frontman-vite`) — Vite middleware plugin, auto-detects framework from vite.config (React, Vue, Svelte, SolidJS, and other Vite apps), adapts Web API to Vite's Node.js request/response
 
 All three packages inject the Frontman client UI into dev servers, establish WebSocket connection to the Frontman backend, and handle MCP tool relay (routing file operations from the agent through the browser to the local filesystem).
 
